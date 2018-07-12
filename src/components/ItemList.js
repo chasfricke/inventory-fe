@@ -31,22 +31,7 @@ export class ItemList extends React.Component {
 
   }
 
-  componentDidMount() {
-    this.getNannies()
-  }
-
-  getNannies = () => {
-    return fetch('https://gnarly-nannies.herokuapp.com/nanny_account_info')
-      .then(response => response.json())
-      .then(data => {
-        var nannyData = data.nanny_account_info;
-        this.setState({nannyData: nannyData})
-      })
-    }
-
  
-  
-  
   render() {
     return (
       <div>

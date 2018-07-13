@@ -65,7 +65,7 @@ export class ItemList extends React.Component {
               <li className="list-group-item d-inline-block text-truncate" >{item.description}</li>
             </ul>
             <div className="card-body d-flex align-items-end">
-              <a href="#" className="btn btn-outline-primary btn-sm btn-block">View</a>
+              <a href="#" className="btn btn-primary btn-block ">View</a>
             </div>
           </div>
       )

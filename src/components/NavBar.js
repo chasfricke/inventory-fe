@@ -19,25 +19,24 @@ export class NavBar extends React.Component {
       
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-            </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Link</a>
+              <a className="nav-link" href="/">Home</a>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
+                Inventory
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">Action</a>
-                <a className="dropdown-item" href="#">Another action</a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">Something else here</a>
+              <a className="dropdown-item" href="/inventory">View All</a>
+                <a className="dropdown-item" href="#">Order</a>
+                <a className="dropdown-item" href="/inventory/add">Add Item</a>
               </div>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" href="#">Disabled</a>
+              <a className="nav-link" href="#">Contact</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Login</a>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">

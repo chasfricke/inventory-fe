@@ -2,4 +2,7 @@
     background-color: whitesmoke;
 }
 
-
+.item-image {
+    object-fit: cover;
+    height:200px;
+  }

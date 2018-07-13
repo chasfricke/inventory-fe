@@ -40,7 +40,7 @@ export class ItemList extends React.Component {
         "image": "https://cdn.shopify.com/s/files/1/1820/0509/products/BNF2083-05.jpg?v=1493260357"
       },
       {
-        "name": "classroom first aid kit",
+        "name": "first aid kit",
         "description": "The Small Leisure Kit includes a comprehensive range of first aid items for common injuries in a medium-sized classroom.",
         "expiration": "8/01/2019",
         "quantity": "25",
@@ -54,18 +54,18 @@ export class ItemList extends React.Component {
   renderItemsList(item){
     if (this.state.testData != null) {     
       return (
-          <div className="card col-11 col-sm-5 col-md-3 col-lg-2 m-1 p-0 shadow p-3 mb-5 bg-white rounded">
-            <img className="card-img-top" src={item.image} alt="product"></img>
-            <div className="card-body">
-              <p className="card-text font-weight-bold">{item.name.toUpperCase()}</p>
+          <div className="card col-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 m-1 p-0 shadow mb-5 bg-white rounded">
+            <div className="card-header">
+              <h4 className="card-title mb-0">{item.name.toUpperCase()}</h4>
             </div>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item d-inline-block text-truncate" >{item.description}</li>
-              <li className="list-group-item">Expires:  {item.expiration}</li>
+            <img className="card-img-top d-none d-sm-block item-image" src={item.image} alt="product"></img>
+            <ul className="list-group list-group-flush ">
+              <li className="list-group-item">Expires: {item.expiration}</li>
               <li className="list-group-item">{item.quantity}</li>
+              <li className="list-group-item d-inline-block text-truncate" >{item.description}</li>
             </ul>
-            <div className="card-body">
-              <a href="#" className="btn btn-primary">Details</a>
+            <div className="card-body d-flex align-items-end">
+              <a href="#" className="btn btn-outline-primary btn-sm btn-block">View</a>
             </div>
           </div>
       )
@@ -76,15 +76,16 @@ export class ItemList extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.state.testData.name}</h1>
-        <h4>{this.state.testData.school}</h4>
+        <h2>{this.state.testData.school}</h2>
         <div className=" container-fluid list-container">
           <br/>
-          <h2>Inventory</h2>
+          <h3>Inventory</h3>
           <br/>
           <div className="row justify-content-center">
-            {this.state.testData.items.map(this.renderItemsList)}
+              {this.state.testData.items.map(this.renderItemsList)}          
           </div>   
+          <a href="#" className="btn btn-primary btn-sm ">Back To Top</a>
+          <br/><br/>
         </div>
       </div>
     );

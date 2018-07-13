@@ -12,28 +12,28 @@ export class ItemList extends React.Component {
       "school": "Boulder High School",
       "email": "JCFarnz@gmail.com",
       "items": [{
-        "name": "water",
+        "item_name": "water",
         "description": "blue 5-gallon jugs of water.",
-        "expiration": "04/20",
+        "expiration": "04/20/19",
         "quantity": "10 units",
         "image": "http://www.survivalsolutions.com/store/media/Water/3_5galwaterjug_full.gif"
       },
       {
         "name": "food",
         "description": "protein bars",
-        "expiration": "05/20",
+        "expiration": "05/20/18",
         "quantity": "100 bars, 5oz each",
         "image": "https://www.moreprepared.com/pub/media/catalog/product/cache/75eed2686e01eb22cb4050b2f40ddf97/h/t/httpsstaging.moreprepared.compubmediacatalogproductsosos_food_bar_2400_calorie.jpg"
       },
       {
-        "name": " thermal blankets",
+        "name": "thermal blankets",
         "description": "First aid kit blankets help block and repel rain, snow, and moisture to keep you dry in damp, wet, cold, rainy environments. Helps maintain approximately 90% of body heat during intense cold climates. The lightweight design makes it a necessity safety first aid kit item to have.",
         "expiration": "NA",
         "quantity": "100 blankets",
         "image": "https://i.ebayimg.com/images/g/VU0AAOSwWKtUrij0/s-l300.jpg"
       },
       {
-        "name": " nitrile gloves",
+        "name": "nitrile gloves",
         "description": "8 mil. thickness, size L",
         "expiration": "NA",
         "quantity": "250 pairs",
@@ -54,7 +54,7 @@ export class ItemList extends React.Component {
   renderItemsList(item){
     if (this.state.testData != null) {     
       return (
-          <div className="card col-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 m-1 p-0 shadow mb-5 bg-white rounded">
+          <div className="card col-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 m-1 p-0 shadow mb-5 bg-white rounded text-center">
             <div className="card-header">
               <h4 className="card-title mb-0">{item.name.toUpperCase()}</h4>
             </div>
@@ -75,7 +75,7 @@ export class ItemList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="text-center">
         <h2>{this.state.testData.school}</h2>
         <div className=" container-fluid list-container">
           <br/>

@@ -36,7 +36,7 @@ export class NavBar extends React.Component {
               <a className="nav-link" href="#">Contact</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Login</a>
+              <a className="nav-link" href="/login">Login</a>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">

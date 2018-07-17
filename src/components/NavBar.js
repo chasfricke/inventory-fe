@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/joffe_logo.png'
+import logo from '../assets/joffe_logo.png';
 
 export class NavBar extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export class NavBar extends React.Component {
   render() {
     return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="https://www.joffeemergencyservices.com/">
+        <a className="navbar-brand" href="/">
             <img src={logo} width="auto" height="50" alt="PHD Logo" />
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@ export class NavBar extends React.Component {
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <a className="dropdown-item" href="/inventory">View All</a>
                 <a className="dropdown-item" href="#">Order</a>
-                <a className="dropdown-item" href="/inventory/add">Add Item</a>
+                <a className="dropdown-item" href="/locations">Add Item</a>
               </div>
             </li>
             <li className="nav-item">

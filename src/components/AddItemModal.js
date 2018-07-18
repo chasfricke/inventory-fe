@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import addButton from '../assets/add-button.png';
+import axios from 'axios';
 
 export class AddItemModal extends React.Component {
   constructor(props) {
@@ -36,23 +37,44 @@ onSubmit = event => {
     
     window.scroll(0,0)
     const data = this.state;
-    this.addItemData(data);
+    (this.state.image ? this.uploadImage() : this.addItemData())
     this.setState({"submit": "Item Added"})
 }
 
 addItemData = data => {
-    fetch('https://inventorydb.herokuapp.com/inventory', {
+    var formData = this.state
+    fetch('http://localhost:3000/inventory', {
         method: 'POST',
-        body:JSON.stringify(data),
+        body:JSON.stringify(formData),
         headers: new Headers({
             'Content-Type': 'application/json'
         })
     })  
         .then(res => res.json())
-        .catch(error => console.error('Error:', error))
+        .catch(error => console.error('Error:', error.response))
+}
+
+handleImageChange = (event) => {
+    console.log(event.target.files[0])
+    const file = event.target.files[0];
+    this.setState({image: event.target.files[0]})
 }
   
+uploadImage = (event) => {
+  console.log('working')
+  const formData = new FormData();
+  formData.append('enctype', 'multipart/form-data');
+  formData.append('file', this.state.image );
+  axios.post('http://localhost:3000/upload', formData)
+    .then(resp => {
+        this.setState({image_link: resp.data.data}, () => {
+            this.addItemData()
+        })
+    })
+  .catch(error=>console.log(error.response))
+}
   
+
   
   render() {
     return (
@@ -85,7 +107,7 @@ addItemData = data => {
                     </div>
                     <div className="form-group">
                         <label>Image</label>
-                        <input type="file" className="form-control" name="image_upload" value={this.state.image_upload} onChange={this.handleInputChange} />
+                        <input type="file" className="form-control" name="image_upload" value={this.state.image_upload} onChange={this.handleImageChange} />
                         <input type="text" className="form-control" placeholder="https://www.img.com" name="image_link" value={this.state.image_link} onChange={this.handleInputChange} />
                     </div>
                     <div className="form-group">

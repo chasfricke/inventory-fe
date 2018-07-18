@@ -43,7 +43,7 @@ onSubmit = event => {
 
 addItemData = data => {
     var formData = this.state
-    fetch('http://localhost:3000/inventory', {
+    fetch('https://inventory-server-9432.herokuapp.com/inventory', {
         method: 'POST',
         body:JSON.stringify(formData),
         headers: new Headers({
@@ -65,7 +65,7 @@ uploadImage = (event) => {
   const formData = new FormData();
   formData.append('enctype', 'multipart/form-data');
   formData.append('file', this.state.image );
-  axios.post('http://localhost:3000/upload', formData)
+    axios.post('https://inventory-server-9432.herokuapp.com/upload', formData)
     .then(resp => {
         this.setState({image_link: resp.data.data}, () => {
             this.addItemData()

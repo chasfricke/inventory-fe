@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NewUserModal from './NewUserModal';
 
 export class Login extends React.Component {
   constructor(props) {
@@ -12,29 +13,38 @@ export class Login extends React.Component {
   handleClick() {
    console.log("clicked")
   }
-  
+  componentDidMount(){
+    fetch('https://inventory-server-9432.herokuapp.com/user')
+      .then(resp=>resp.json())
+      .then(userList => {
+        this.setState({userList: userList})
+      })
+  }
   
   
   render() {
     return (
       <div className="container">
       <br/><br/>
-        <form className="container col-6">
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
-            <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+        <form className="container col-10">
+          <div className="btn-group col-lg-auto">
+            <button className="btn btn-secondary btn-lg dropdown-toggle col" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select User
+            </button>
+            <div className="dropdown-menu col">
+              {(this.state.userList 
+                ?  this.state.userList.map(user => {
+                  return (<h3>{user.user_name}</h3>)
+                })
+                :  null
+              )}
+            </div>
           </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password</label>
-            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"></input>
+          <div className='container'>
+            <Link className="btn btn-primary" role="button" to="/users/:id/locations" onClick={this.handleClick}>Submit</Link>
           </div>
-          <div className="form-group form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck1"></input>
-            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-          </div>
-          <Link className="btn btn-primary" role="button" to="/users/:id/locations" onClick={this.handleClick}>Submit</Link>
         </form>
+        <NewUserModal/>
       </div>
     );
   }

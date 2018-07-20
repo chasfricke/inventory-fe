@@ -14,7 +14,7 @@ export class SplashScreen extends React.Component {
         <br/><br/>
         <img src={logo} width="50%"></img>
         <br/><br/>
-        <a href="/login" className="btn btn-secondary">Get Started</a>
+        <a href="/login" className="btn btn-primary">Get Started</a>
     </div>
     );
   }

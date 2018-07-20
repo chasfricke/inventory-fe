@@ -8,11 +8,13 @@ export class Login extends React.Component {
     this.state = {};
 
     this.handleClick = this.handleClick.bind(this);
+    this.updateActiveUser = this.updateActiveUser.bind(this);
   } 
 
   handleClick() {
    console.log("clicked")
   }
+
   componentDidMount(){
     fetch('https://inventory-server-9432.herokuapp.com/user')
       .then(resp=>resp.json())
@@ -20,31 +22,37 @@ export class Login extends React.Component {
         this.setState({userList: userList})
       })
   }
+
+  updateActiveUser(event){
+    this.setState({"activeUser": event.target.name})
+    console.log("user selected")
+  }
   
   
   render() {
     return (
       <div className="container">
       <br/><br/>
-        <form className="container col-10">
-          <div className="btn-group col-lg-auto">
-            <button className="btn btn-secondary btn-lg dropdown-toggle col" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Select User
+      <NewUserModal/>
+        <form className="container col-10 text-center">
+          <div className="btn-group">
+            <button className="btn btn-secondary btn-lg dropdown-toggle col-12" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {this.state.activeUser ? this.state.activeUser : "Users"}
             </button>
-            <div className="dropdown-menu col">
+            <div className="dropdown-menu">
               {(this.state.userList 
                 ?  this.state.userList.map(user => {
-                  return (<h3>{user.user_name}</h3>)
+                  return (<button class="dropdown-item" name={user.user_name} type="button" onClick={this.updateActiveUser}>{user.user_name}</button>)
                 })
                 :  null
               )}
             </div>
           </div>
-          <div className='container'>
+          <div className='container mt-4'>
             <Link className="btn btn-primary" role="button" to="/users/:id/locations" onClick={this.handleClick}>Submit</Link>
           </div>
         </form>
-        <NewUserModal/>
+        
       </div>
     );
   }

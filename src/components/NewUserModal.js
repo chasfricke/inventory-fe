@@ -45,14 +45,12 @@ export class NewUserModal extends React.Component {
   render() {
     return (
       <div>
-        <div classNam="row">
-          <div className="col">
+        <div className="row">
+          <div className="col"></div>
+          <div className="col-6 text-center"><h2 className="pt-2">Select A User</h2></div>
+          <div className="col text-right">
+            <input className="" type="image" src={addButton} width="auto" height="50" alt="" data-toggle="modal" data-target="#exampleModal" />
           </div>
-          <div className="col">
-            <input className="align-content-end" type="image" src={addButton} width="auto" height="50" alt="" data-toggle="modal" data-target="#exampleModal" />
-          </div>
-        </div>
-        <div className='row'>
         </div>
         <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">

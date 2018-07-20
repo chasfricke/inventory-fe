@@ -79,13 +79,13 @@ uploadImage = (event) => {
   render() {
     return (
         <div>
-            <div class="row">
-                <div class="col">
+            <div className="row">
+                <div className="col">
                 </div>
-                <div class="col">
+                <div className="col">
                     <h3>Inventory</h3>
                 </div>
-                <div class="col">
+                <div className="col">
                     <input className="align-content-end" type="image"  src={addButton} width="auto" height="50" alt="" data-toggle="modal" data-target="#exampleModal"/>
                 </div>
             </div>

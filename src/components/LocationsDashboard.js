@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AddLocationModal from './AddLocationModal';
 
 export class LocationsDashboard extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export class LocationsDashboard extends React.Component {
       <div className="container text-center">
         <h1>Welcome {this.props.users[0].user_name}</h1>
         <br/><br/>
-        <h4>Your Locations</h4>
+        <AddLocationModal />
         <div className="row justify-content-center">
         {this.props.facilities.map(this.renderLocations)}
         </div> 

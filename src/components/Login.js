@@ -34,15 +34,15 @@ export class Login extends React.Component {
       <div className="container">
       <br/><br/>
       <NewUserModal/>
-        <form className="container col-10 text-center">
+        <form className="container text-center">
           <div className="btn-group">
-            <button className="btn btn-secondary btn-lg dropdown-toggle col-12" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button className="btn btn-secondary btn-lg dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {this.state.activeUser ? this.state.activeUser : "Users"}
             </button>
             <div className="dropdown-menu">
               {(this.state.userList 
                 ?  this.state.userList.map(user => {
-                  return (<button class="dropdown-item" name={user.user_name} type="button" onClick={this.updateActiveUser}>{user.user_name}</button>)
+                  return (<button className="dropdown-item" name={user.user_name} type="button" onClick={this.updateActiveUser}>{user.user_name}</button>)
                 })
                 :  null
               )}
